@@ -23,17 +23,19 @@ export const SourceUrlInput = props => {
     }
   });
   return (
-    <Form {...form}>
-      <FormLabel {...form} name="sourceUrl">
-        Source Image URL
-      </FormLabel>
-      <FormInput
-        {...form}
-        name="sourceUrl"
-        placeholder={"https://example.com/myimage.jpg"}
-      />
-      <FormMessage {...form} name="sourceUrl" />
-      <FormSubmitButton {...form}>Create Emoji</FormSubmitButton>
-    </Form>
+    <div className="sourceUrlInput">
+      <Form {...form}>
+        <FormLabel {...form} name="sourceUrl">
+          Source Image URL
+        </FormLabel>
+        <FormInput
+          {...form}
+          name="sourceUrl"
+          placeholder={"https://example.com/myimage.jpg"}
+        />
+        <FormMessage {...form} name="sourceUrl" />
+        <FormSubmitButton {...form}>Create Emoji</FormSubmitButton>
+      </Form>
+    </div>
   );
 };
