@@ -10,6 +10,8 @@ function App() {
   return (
     <div className="App">
       <Provider unstable_system={system}>
+        <h1>Create at-reaction emoji</h1>
+        <p>Enter the source image URL below to create an at-reaction emoji:</p>
         <SourceUrlInput setSourceUrl={setSourceUrl} />
         <EmojiAtReactionMaker sourceUrl={sourceUrl} />
       </Provider>

@@ -6,12 +6,12 @@ export class EmojiAtReactionMaker extends React.Component {
     this.state = {};
   }
 
-  componentDidUpdate(previousProps) {
+  async componentDidUpdate(previousProps) {
     const { sourceUrl } = this.props;
     if (sourceUrl !== previousProps.sourceUrl) {
       this.setState({ result: null, error: null });
       try {
-        this.fetchResult(sourceUrl);
+        await this.fetchResult(sourceUrl);
       } catch (error) {
         this.setState({ error });
       }
@@ -25,17 +25,18 @@ export class EmojiAtReactionMaker extends React.Component {
       `https://nevernude.azurewebsites.net/api/createEmojiAtReaction?code=ceCsY9jjGOWCTBVHWvsS2PxuathwmsKkznQX5QAjVBvvaY4eEQ6QRA==&sourceUrl=${sourceUrl}`
     );
 
-    if (response.status !== 200) {
-      throw new Error(
-        `HTTP response code ${response.status}: ${Response.statusText}`
-      );
-    }
     console.log("Response received");
     const body = await response.json();
+
     if (this.props.sourceUrl !== sourceUrl) {
       console.log(`New request detected, aborting for ${sourceUrl}`);
       return;
     }
+
+    if (response.status !== 200) {
+      throw new Error(`HTTP ${response.status}: ${body.error}`);
+    }
+
     const { base64 } = body;
     console.log("Setting body payload");
     this.setState({ error: null, result: base64 });
@@ -46,9 +47,7 @@ export class EmojiAtReactionMaker extends React.Component {
     const { error, result } = this.state;
     return (
       <div className="emojiAtReactionMaker">
-        {sourceUrl == null ? (
-          <p>Enter URL</p>
-        ) : error != null ? (
+        {sourceUrl == null ? null : error != null ? (
           <p>Error: {error.message}</p>
         ) : result == null ? (
           <p>Loading...</p>

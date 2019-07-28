@@ -33,7 +33,7 @@ export const SourceUrlInput = props => {
         placeholder={"https://example.com/myimage.jpg"}
       />
       <FormMessage {...form} name="sourceUrl" />
-      <FormSubmitButton {...form}>Submit</FormSubmitButton>
+      <FormSubmitButton {...form}>Create Emoji</FormSubmitButton>
     </Form>
   );
 };
