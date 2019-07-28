@@ -1,3 +1,9 @@
+# AtReactify
+
+For when your [Slack](https://slack.com/) culture is so vibrant, you need to react to reactions with reactions.
+
+**Standard CRA README continues below.**
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
