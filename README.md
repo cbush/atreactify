@@ -1,6 +1,17 @@
 # AtReactify
 
+🚀
+
 For when your [Slack](https://slack.com/) culture is so vibrant, you need to react to reactions with reactions.
+
+![At-reaction emoji in the wild](https://github.com/cbush/atreactify/blob/master/docs/at-reaction.png "At-react in the wild")
+
+This is the web frontend for an [Azure Function](azure.microsoft.com/Functions/Serverless) that uses [JIMP](https://www.npmjs.com/package/jimp) to combine the image at the given URL with the "at reaction" hand.
+
+![Screenshot of the frontend](https://github.com/cbush/atreactify/blob/master/docs/screenshot.png "Screenshot")
+
+See it in action here: https://gash.ca/atreactify
+
 
 **Standard CRA README continues below.**
 
